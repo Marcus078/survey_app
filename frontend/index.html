@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill Out Survey</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="home-page">
+    <div class="container">
+        <div class="header">
+            <div class="logo">_Surveys</div>
+            <div class="nav-links">
+                <a href="index.html" class="link-fill-out-survey">FILL OUT SURVEY</a>
+                <a href="results.html" class="link-view-results">VIEW SURVEY RESULTS</a>
+            </div>
+        </div>
+
+
+        <form id="surveyForm">
+            <div class="section-title">Personal Details :</div>
+            <div class="form-group">
+                <label for="fullName">Full Names</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="dateOfBirth">Date of Birth</label>
+                <input type="date" id="dateOfBirth" name="dateOfBirth" required>
+            </div>
+            <div class="form-group">
+                <label for="contactNumber">Contact Number</label>
+                <input type="tel" id="contactNumber" name="contactNumber" pattern="[0-9]{10}" placeholder="e.g. 0123456789" required>
+            </div>
+
+            <div class="section-title">What is your favorite food?</div>
+            <div class="checkbox-group">
+                <label></label>
+                <div class="checkbox-options">
+                    <label class="checkbox-option">
+                        <input type="radio" name="favouriteFoods" value="Pizza" required>
+                        <span class="checkmark"></span> Pizza
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="radio" name="favouriteFoods" value="Pasta">
+                        <span class="checkmark"></span>
+                        Pasta
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="radio" name="favouriteFoods" value="Pap and Wors">
+                        <span class="checkmark"></span>
+                        Pap and Wors
+                    </label>
+                    <label class="checkbox-option">
+                        <input type="radio" name="favouriteFoods" value="Others">
+                        <span class="checkmark"></span>
+                        Other
+                    </label>
+                </div>
+            </div>
+
+            <p class="rating-prompt">Please rate your level of agreement on a scale from 1 to 5, with 1 being "strongly agree" and 5 being "strongly disagree."</p>
+
+            <table class="rating-table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Strongly Agree</th>
+                        <th>Agree</th>
+                        <th>Neutral</th>
+                        <th>Disagree</th>
+                        <th>Strongly Disagree</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>I like to watch movies</td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchMovies" value="Strongly Agree" required>
+                                <span class="checkmark round"></span> </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchMovies" value="Agree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchMovies" value="Neutral">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchMovies" value="Disagree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchTV" value="Strongly Disagree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>I like to listen to radio</td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="listenRadio" value="Strongly Agree" required>
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="listenRadio" value="Agree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="listenRadio" value="Neutral">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="listenRadio" value="Disagree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="listenRadio" value="Strongly Disagree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>I like to eat out</td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="eatOut" value="Strongly Agree" required>
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="eatOut" value="Agree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="eatOut" value="Neutral">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="eatOut" value="Disagree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="eatOut" value="Strongly Disagree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>I like to watch TV</td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchTV" value="Strongly Agree" required>
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchTV" value="Agree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchTV" value="Neutral">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchTV" value="Disagree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                        <td>
+                            <label class="checkbox-option">
+                                <input type="radio" name="watchTV" value="Strongly Disagree">
+                                <span class="checkmark round"></span>
+                            </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="message-container">
+                <div id="formMessage"></div>
+            </div>
+
+            <button type="submit" class="submit-button">SUBMIT</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

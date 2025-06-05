@@ -1,0 +1,363 @@
+/* style.css */
+
+/* Define CSS Variables for easy color changes */
+:root {
+    --primary-blue: #3399FF; /* Lighter blue for links, borders, selected states */
+    --darker-blue: #0066CC; /* Darker blue for hover states */
+    --header-border-color: black; /* Black for table header lines */
+    --default-text-color: #333;
+    --light-grey-bg: #f4f4f4;
+    --white-bg: #fff;
+    --border-grey: #eee;
+    --label-color: #555;
+    --error-color: red;
+    --success-color: green;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--light-grey-bg);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align to top */
+    min-height: 100vh;
+    color: var(--default-text-color);
+}
+
+.container {
+    background-color: var(--white-bg);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    max-width: 95%;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-grey);
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--default-text-color);
+}
+
+.nav-links a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--primary-blue); /* Default link color */
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* --- Active Link Styling --- */
+body.home-page .nav-links .link-fill-out-survey {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+body.home-page .nav-links .link-view-results {
+    color: var(--label-color); /* Normal/less prominent color for inactive */
+}
+
+body.results-page .nav-links .link-view-results {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+body.results-page .nav-links .link-fill-out-survey {
+    color: var(--label-color); /* Normal/less prominent color for inactive */
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--default-text-color);
+    font-size: 28px;
+}
+
+/* --- Form Specific Styles (for index.html) --- */
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: var(--default-text-color);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.form-group label {
+    flex: 0 0 150px;
+    margin-right: 15px;
+    font-weight: bold;
+    color: var(--label-color);
+    text-align: right;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group input[type="tel"] {
+    flex-grow: 1;
+    padding: 10px;
+    /* --- NEW: Always blue border for input fields --- */
+    border: 1px solid var(--primary-blue);
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Remove separate focus style as it's now always blue */
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="date"]:focus,
+.form-group input[type="tel"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(51, 153, 255, 0.5); /* A subtle glow on focus */
+}
+
+
+.checkbox-group {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-group > label {
+    flex: 0 0 150px;
+    margin-right: 15px;
+    font-weight: bold;
+    color: var(--label-color);
+    text-align: right;
+}
+
+.checkbox-options {
+    display: flex;
+    gap: 20px;
+}
+
+/* Base style for custom checkbox/radio labels */
+.checkbox-option {
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 25px; /* Space for the custom indicator */
+}
+
+/* Hide the default radio/checkbox input */
+.checkbox-option input[type="radio"],
+.checkbox-option input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Custom indicator base (square or circle) */
+.checkbox-option .checkmark {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center */
+    height: 18px; /* Slightly smaller size */
+    width: 18px;
+    background-color: var(--white-bg); /* White background for unselected */
+    border: 1px solid var(--primary-blue); /* Blue border, 1px thick */
+    box-sizing: border-box;
+}
+
+/* --- Specific styling for "Favorite Food" (Square Checkbox Look using Radio) --- */
+.checkbox-group .checkmark {
+    border-radius: 2px; /* Make it square */
+}
+
+/* --- Specific styling for "Rating Table" (Circular Radio Buttons) --- */
+.rating-table .checkmark {
+    border-radius: 50%; /* Make it circular */
+}
+
+/* On hover, add a slightly darker background */
+.checkbox-option:hover input ~ .checkmark {
+    background-color: #ddd; /* A light grey on hover */
+}
+
+/* When the input is checked */
+.checkbox-option input:checked ~ .checkmark {
+    background-color: var(--primary-blue); /* Blue fill when selected */
+}
+
+/* Create the inner dot/check mark */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the inner dot/check mark when checked */
+.checkbox-option input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the inner dot/check mark for radios (circular) */
+.rating-table .checkmark:after {
+    left: 6px; /* Center the dot */
+    top: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--white-bg); /* White dot */
+}
+
+/* Style the inner checkmark for checkboxes (square) */
+.checkbox-group .checkmark:after {
+    left: 6px; /* Position checkmark */
+    top: 3px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+
+.rating-prompt {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: var(--label-color);
+}
+
+.rating-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.rating-table th {
+    /* --- NEW: Black border for header cells --- */
+    border: 1px solid var(--header-border-color);
+    padding: 10px;
+    text-align: center;
+    background-color: #f2f2f2; /* Light grey header background */
+    font-weight: bold;
+    color: var(--default-text-color);
+}
+
+.rating-table td {
+    /* --- NEW: Blue border for data cells --- */
+    border: 1px solid var(--primary-blue);
+    padding: 10px;
+    text-align: center;
+}
+
+.rating-table td:first-child {
+    text-align: left;
+    font-weight: normal;
+    color: var(--label-color);
+}
+
+
+.submit-button {
+    display: block;
+    width: 150px;
+    padding: 12px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 30px auto 0 auto;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: var(--darker-blue);
+}
+
+/* --- Message Placement --- */
+.message-container {
+    text-align: center;
+    margin-top: 15px;
+    min-height: 25px;
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9em;
+}
+
+.server-error-message {
+    color: var(--error-color);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.success-message {
+    color: var(--success-color);
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* --- Survey Results Specific Styles (for results.html) --- */
+.results-grid {
+    /* Removed grid-template-columns and display: grid */
+    margin-top: 30px;
+}
+
+/* Style for each section div within results-grid */
+.results-section {
+    margin-bottom: 25px; /* Adds space between sections */
+}
+
+.results-section div {
+    display: flex; /* Keep key-value pairs on one line */
+    justify-content: space-between; /* Push value to the right */
+    padding: 5px 0;
+    border-bottom: 1px dashed var(--border-grey); /* Dashed separator */
+}
+
+.results-section div:last-child {
+    border-bottom: none; /* No border for the last item in a section */
+}
+
+.results-grid strong {
+    color: var(--default-text-color);
+}
+
+.results-grid span.result-value {
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+.no-surveys-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--label-color);
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
